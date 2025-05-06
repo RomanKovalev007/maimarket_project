@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAI market</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="/new-product.js" defer></script>
+</head>
+<body>
+    <header class="header" data-js-header>
+        <div class="header__inner container">
+          <a class="header__logo" href="/">
+              <img class="header__logo-image" src="./MAI_logo_color.png" alt="MAI logo" width="100" height="100">
+          </a>
+  
+          <form class="header__form">
+                  <input class="header__form-search"  type="text" placeholder="Поиск товаров...">
+              <button class="header__form-search-button" type="submit">Найти</button>
+          </form>
+  
+          <nav class="header__menu " data-js-header-overlay>
+              <ul class="header__menu-list">
+                  <li class="header__menu-item">
+                      <a class="header__menu-link header__menu-link--heart" href="#">Избранное</a>
+                  </li>
+                  <li class="header__menu-item">
+                      <a class="header__menu-link header__menu-link--folder" href="#">Категории</a>
+                  </li>
+                  <li class="header__menu-item ">
+                      <a class="header__menu-link header__menu-item--info " href="#">О сайте</a>
+                  </li>
+            
+                  <li class="header__menu-item ">
+                      <a class="header__menu-link header__menu-item--mail" href="#">Поддержка</a>
+                  </li>
+                  <!-- <li class="header__menu-item">
+                      <a class="header__menu-link header__menu-link--profile" href="/form-login.html">Войти</a>
+                  </li> -->
+                  <li class="header__menu-item">
+                    <a class="header__menu-link" href="/profile.html">
+                      <span class="profile">
+                        <span class="profile__logo">
+                          <img class="profile__logo-image" src="/img/1.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="profile__name">Профиль</span>
+                      </span>
+                    </a>
+                </li>
+              </ul>
+          </nav>
+  
+          <button type="button" class="header__burger-button  burger-button visible-tablet " data-js-header-burger-button  aria-label="Open menu" title="Open menu">
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+          </button>
+        </div>
+    </header>
+    <main class="main">
+        <section class="container">
+            <header class="section__header">
+                <h1 class="section__header-title h2">Категории</h1>
+            </header>
+            <div class="section__body">
+                <div class="add-product">
+                    <form class="add-product__form">
+
+                     <div class="add-product__box">
+                         <label class="add-product__title h4" for="prodName">Название объявления</label>
+                         <input class="add-product__name-input" type="text" name="prodName" id="prodName">
+                     </div>
+         
+                    <div class="add-product__box add-product__box--download-photo">
+                        <label class="add-product__title h4">Фотографии</label>
+                        <div class="add-product__box-wrapper">
+                            <div class="add-product__box-inner">
+                                <div class="add-product__photo-box add-product__hidden" >
+                                    <img class="add-product__image " id="preview" src=""  width="230" height="230"/>
+                                    <button class=" add-product__delete-image cross cross--small cross--red">
+                                    </button>
+                                </div>
+                            </div>
+             
+                            <label class="add-product__upload">
+                                <input class="add-product__upload-input" required type="file" id="fileInput"  accept="image/*" hidden>
+                                 <p class="add-product__upload-text">Добавить фотографию</p>
+                            </label>
+                        </div>
+                    </div>
+                     
+
+                     
+                     <div class="add-product__box">
+                         <label class="add-product__title h4">Состоние</label>
+                         <div class="radiobuttons">
+                             <label class="radiobuttons__box" >
+                                 <input class="radiobuttons__input vissually-hidden" checked type="radio" name="condition" id="new" value="newProduct">
+                                 <span class="radiobuttons__emulator is-active"></span>
+                                 <span class="radiobuttons__label">Новое</span>
+                             </label>
+                         
+                         
+                             <label class="radiobuttons__box" >
+                                 <input class="radiobuttons__input vissually-hidden" type="radio" name="condition" id="old" value="usedProduct">
+                                 <span class="radiobuttons__emulator"></span>
+                                 <span class="radiobuttons__label">БУ</span>
+                             </label>
+                         </div>
+                         
+                         
+                     </div>
+         
+                     <div class="add-product__box">
+                         <label class="add-product__title h4" for="prodDescprition">Описание товара</label>
+                         <textarea class="add-product__area" name="description" id="prodDescprition"></textarea>
+                     </div>
+         
+                     <div class="add-product__box">
+                         <label class="add-product__title h4" for="choseCategori">Категории</label>
+
+                         <select class="add-product__categori-input" name="catrgories" id="choseCategori">
+                             <option  selected disabled>Выберите подходящую категорию</option>
+                             <option value="electronicProducts">Электроника</option>
+                             <option value="carProducts">Авто</option>
+                             <option value="houseProducts">Товары для дома</option>
+                             <option value="clotheProducts">Одежда и обувь</option>
+                             <option value="accesoriesProducts">Аксессуары</option>
+                             <option value="beautyProducts">Красота и здоровье</option>
+                             <option value="booksProducts">Книги</option>
+                             <option value="servicesProducts">Услуги</option>
+                             <option value="otherProducts">Другое</option>
+         
+                         </select>
+                     </div>
+
+                     <div class="add-product__box">
+                         <label class="add-product__title h4" for="price">Цена</label>
+                         <div class="add-product__price-wrapper">
+                             <input type="text" class="add-product__price-input" id="price" name="priceProd">
+                             <span class="add-product__price-money-symbol">₽</span>
+                         </div> 
+                     </div>
+         
+             
+         
+                     <div class="add-product__buttons">
+                         <button class="add-product__button button  button--blue" type="submit">Опубликовать</button>
+                         <a  class="add-product__button button  button--blue" href="/">Выйти</a>
+                     </div>
+                    </form>
+         
+                </div>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

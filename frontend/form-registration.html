@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAI Registration</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="/scripts/form-reg.js" type="module" defer></script>
+</head>
+<body>
+    <section class="registration-login ">
+
+            <form class="registration-login__form form container" data-js-registration-form novalidate>
+                <div class="form__header">
+                    <h1 class="form__title h3">
+                        Регистрация
+                    </h1>
+                    <a class="form__close-button cross" href="./index.html">
+                    </a>
+                </div>
+                <div class="form__box">
+                        <label class="form__box-title visually-hidden" for="Email">Почта</label>
+                        <input class="form__box-input"  type="email" name="email" id="Email"  placeholder="Почта" required  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Введите корректный email, например: example@mail.com" >
+                        <div></div>
+                </div>
+                <div class="form__box">
+                        <label class="form__box-title visually-hidden" for="Password">Пароль</label>
+                        <input class="form__box-input"  type="password" name="password" id="Password"   placeholder="Пароль" required minlength="5" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$" >
+                        <div></div>
+                </div>
+
+                <div class="form__checkbox">
+                    <input class="form__checkbox-input "  type="checkbox" value="agreeWithPolicy" id="agreeWithPolicy" name="polagree"  required>
+                    <label class="form__checkbox-title" for="agreeWithPolicy" >Согласен с политикой сайта</label>
+                    <div></div>
+                </div>
+                <div class="form__box form__box--registration">
+                    <button type="submit" class="form__box-button button button--registration">Регистрация</button>
+                </div>
+                <div class="form__box">
+                    <p class="form__box-account-message">Уже есть аккаунт</p>
+                    <a class="form__box-button button" href="/form-login.html">Войти</a>
+                </div>
+            </form>
+    </section>
+</body>
+</html>
+
+
