@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка товара</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="/scripts/main.js" type="module" defer></script>
+</head>
+<body>
+    <header class="header" data-js-header>
+        <div class="header__inner container">
+          <a class="header__logo" href="/">
+              <img class="header__logo-image" src="./MAI_logo_color.png" alt="MAI logo" width="100" height="100">
+          </a>
+  
+          <form class="header__form">
+                  <input class="header__form-search"  type="text" placeholder="Поиск товаров...">
+              <button class="header__form-search-button" type="submit">Найти</button>
+          </form>
+  
+          <nav class="header__menu " data-js-header-overlay>
+              <ul class="header__menu-list">
+                  <li class="header__menu-item">
+                      <a class="header__menu-link header__menu-link--heart" href="#">Избранное</a>
+                  </li>
+                  <li class="header__menu-item">
+                      <a class="header__menu-link header__menu-link--folder" href="./mainProdPage.html">Категории</a>
+                  </li>
+                  <li class="header__menu-item ">
+                      <a class="header__menu-link header__menu-item--info " href="#">О сайте</a>
+                  </li>
+            
+                  <li class="header__menu-item ">
+                      <a class="header__menu-link header__menu-item--mail" href="#">Поддержка</a>
+                  </li>
+                  <!-- <li class="header__menu-item">
+                      <a class="header__menu-link header__menu-link--profile" href="/form-login.html">Войти</a>
+                  </li> -->
+                  <li class="header__menu-item">
+                    <a class="header__menu-link" href="/profile.html">
+                      <span class="profile">
+                        <span class="profile__logo">
+                          <img class="profile__logo-image" src="/img/1.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="profile__name">Профиль</span>
+                      </span>
+                    </a>
+                </li>
+              </ul>
+          </nav>
+  
+          <button type="button" class="header__burger-button  burger-button visible-tablet " data-js-header-burger-button  aria-label="Open menu" title="Open menu">
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+          </button>
+        </div>
+    </header>
+    <main class="main">
+        <section class="section container">
+          <div class="section__body">
+            <div class="product-card">
+                <div class="product-card__header">
+                    <h1 class="product-card__name h3">ТУТ БУДЕТ имя товара ВАЗ (LADA) 2101 1.3 MT, 1977, 50 000 км</h1>
+                    <p class="product-card__price h3">90 000 ₽ </p>
+                </div>
+                <div class="product-card__body">
+                    <div class="product-card__photo">
+                        <img class="product-card__image" src="/img/iphone_16_128_gb_rozovyy.jpg" alt="" width="662" height="450">
+                    </div>
+                    <div class="product-card__aside">
+                        <div class="product-card__link">
+                            <a class="product-card__aside-profile" href="./profile.html">
+                                <p>Леонид Хрестолюбов</p>
+                                <img class="product-card__aside-profile-image" src="/img/TASS-74459246-copy-66fd7ab4c57e0.jpg" alt="" width="60" height="60">
+                            </a>
+                        </div>
+                        <a class="product-card__aside-button button button--blue" href="/">Написать сообщение</a>
+                        <a class="product-card__aside-button button button--green product-card__aside-button--call" href="/">Позвонить</a>
+                        <a class="product-card__redact-icon button" href="/">
+                            <p>Редактировать</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="product-card__address">
+                    <h2 class="h3">Расположение</h2>
+                    <p>
+                        Красноярский край, Красноярск, Лесопарковая ул., 21
+                        р-н Октябрьский
+                    </p>
+                </div>
+                <div class="product-card__description">
+                    <h2 class="h3">Описание</h2>
+                    <p>
+                        2101 чиcтокpовнaя пeрвая модель не пеpеxоднaя
+                        1977 г.в.
+                        Kузoв: днище в идeaльнoм сocтoянии, кocти все на мecтe, багажник в ахуе
+                        Пo низу фapтуков pыжики, внeшний пpавый порoг с дыpкoй и правoe кpыло
+                        Салoн: зaдний дивaн красный родной, двeрныe кaрты кpaсныe родныe, пepед cидeнья 07, 2 выcокочacтотныx динамика, 2 овала, процессорный мафон Сони , старенький саб
+                        Подвеска: рычаги стингер разгон зеленый двойной стабилизатор проставки со шпильками, дисковые тормоза 09 перед, усилитель рулевого редуктора, жопа на 08 сайлентах на пулиритане вкруг технорессоры стоят живые
+                        редуктор новый
+                        КПП: 5 ступка новое сцепление новое масло
+                        Мотор: 1.6 рассточенный до 1.7
+                        Ебашит как не всегда весь обслужен нигде ни че не ссыт новый стартер свечи броники фильтра трамблер коммутатор
+                        цена на пару дней
+                    </p>
+                </div>
+            </div>
+          </div>
+        </section>
+    </main>
+</body>
+</html>
+
