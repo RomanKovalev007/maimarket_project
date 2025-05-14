@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAI Registration</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css'%}">
+    <script src="{% static 'main/js/form-log.js'%}" defer></script>
+
+</head>
+<body>
+    <section class="registration-login">
+        {% block content %} {% endblock %}
+    </section>
+</body>
+</html>

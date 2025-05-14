@@ -1,0 +1,7 @@
+{% extends 'base_for_forms.html' %}
+{% block content %}
+
+    <h2>Вы успешно зарегестрированы!</h2>
+    <p>Перейдите по ссылке ниже для входа на сайт:</p>
+    <a href="{% url 'users:login' %}">Вход</a>
+{% endblock %}

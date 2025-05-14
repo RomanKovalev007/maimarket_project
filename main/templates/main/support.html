@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAI market</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="./scripts/main.js" type="module" defer></script>
+</head>
+<body>
+    <header class="header" data-js-header>
+      <div class="header__inner container">
+        <a class="header__logo" href="/">
+            <img class="header__logo-image" src="./MAI_logo_color.png" alt="MAI logo" width="100" height="100">
+        </a>
+
+        <form class="header__form">
+                <input class="header__form-search"  type="text" placeholder="Поиск товаров...">
+            <button class="header__form-search-button" type="submit">Найти</button>
+        </form>
+
+        <nav class="header__menu " data-js-header-overlay>
+            <ul class="header__menu-list">
+                <li class="header__menu-item">
+                    <a class="header__menu-link header__menu-link--heart" href="#">Избранное</a>
+                </li>
+                <li class="header__menu-item">
+                    <a class="header__menu-link header__menu-link--folder" href="./mainProdPage.html">Категории</a>
+                </li>
+                <li class="header__menu-item ">
+                    <a class="header__menu-link header__menu-item--info " href="#">О сайте</a>
+                </li>
+          
+                <li class="header__menu-item ">
+                    <a class="header__menu-link header__menu-item--mail" href="#">Поддержка</a>
+                </li>
+                <!-- <li class="header__menu-item">
+                    <a class="header__menu-link header__menu-link--profile" href="/form-login.html">Войти</a>
+                </li> -->
+                <li class="header__menu-item">
+                  <a class="header__menu-link" href="/profile.html">
+                    <span class="profile">
+                      <span class="profile__logo">
+                        <img class="profile__logo-image" src="/img/1.png" alt="" width="40" height="40">
+                      </span>
+                      <span class="profile__name">Профиль</span>
+                    </span>
+                  </a>
+              </li>
+            </ul>
+        </nav>
+
+        <button type="button" class="header__burger-button  burger-button visible-tablet " data-js-header-burger-button  aria-label="Open menu" title="Open menu">
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="section container">
+        <header class="section__header ">
+            <h1 class="section__header-title h3">Контакты</h1>
+        </header>
+        <div class="section__body">
+          <p class="h5">+79832972747</p>
+          <p class="h5">+79832038888</p>
+        </div>
+      </section>
+      <section class="section container">
+        <header class="section__header ">
+            <h1 class="section__header-title h3">Поддержка</h1>
+        </header>
+        <div class="section__body  ">
+            <div class="support-page">
+              <h2 class="support-page__title h4">Заполните форму и опишите свою ошибку или обратитесь по телефону выше</h2>
+              <form class="support-page__form">
+                  <div class="support-page__box">
+                      <label class="h5" for="emalil">Ваша почта</label>
+                      <input class="support-page__input" type="email" name="Email" id="emalil">
+                  </div>
+                  <div class="support-page__box">
+                    <label class="h5" for="error">Опишите проблему</label>
+                    <textarea class="support-page__text-area" type="text" name="ERROR" id="error"></textarea>
+                </div>
+                <div class="support-page__button-box">
+                  <button class="support-page__button button button--blue" type="submit">Отправить</button>
+                  <a  class="support-page__button button button--blue"  href="./index.html">Выйти</a>
+                </div>
+              </form>
+            </div>
+        </div>
+      </section>
+    </main>
+ 
+
+</body>
+</html>
