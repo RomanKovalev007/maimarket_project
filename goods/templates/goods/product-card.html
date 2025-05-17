@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main">
+    <section class="section container">
+      <div class="section__body">
+        <div class="product-card">
+            <div class="product-card__header">
+                <h1 class="product-card__name h3">{{ ad.name }}</h1>
+                <p class="product-card__price h3">{{ ad.price }} ₽ </p>
+            </div>
+            <div class="product-card__body">
+                <div class="product-card__photo">
+                    {% if ad.image %}
+                    <img class="product-card__image" src="{{ ad.image.url }}" alt="" width="662" height="450">
+                    {% endif %}
+                </div>
+                <div class="product-card__aside">
+                    <div class="product-card__link">
+                        <a class="product-card__aside-profile" href="{{ ad.seller.get_absolute_url }}">
+                            <p>{{ ad.seller.username }}</p>
+                            {% if ad.seller.photo %}
+                            <img class="product-card__aside-profile-image" src="{{ ad.seller.photo.url }}" alt="" width="60" height="60">
+                            {% endif %}
+                        </a>
+                    </div>
+
+
+                    {% if user == ad.seller %}
+                    <a class="product-card__redact-icon button" href="{% url 'goods:edit' ad.slug %}">
+                        <p>Редактировать</p>
+                    </a>
+                    {% else %}
+                    <a href="https://t.me/{{ ad.seller.telegram }}" class="product-card__aside-button button button--blue">Написать в телеграмм</a>
+                    <a class="product-card__aside-button button button--green product-card__aside-button--call" href="/">Позвонить</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="product-card__address">
+                <h2 class="h3">Расположение</h2>
+                <p>
+                    {{ ad.address.name }},
+                    <a href="{{ ad.address.link_to_map }}" target="_blank" rel="noopener noreferrer">
+                        {{ ad.address.address }}
+                    </a>
+                </p>
+            </div>
+            <div class="product-card__description">
+                <h2 class="h3">Описание</h2>
+                <p>
+                    {{ad.description}}
+                </p>
+            </div>
+        </div>
+      </div>
+    </section>
+</main>
+{% endblock %}

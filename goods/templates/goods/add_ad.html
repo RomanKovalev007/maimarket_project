@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block js %}
+    <script src="{% static 'goods/js/new-product.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+<main class="main">
+    <section class="container">
+        <header class="section__header">
+            <h1 class="section__header-title h2">Категории</h1>
+        </header>
+        <div class="section__body">
+            <div class="add-product">
+                <form class="add-product__form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                 <div class="add-product__box">
+                     <label class="add-product__title h4" for="{{ form.name.id_for_label }}">Название объявления</label>
+                     {{ form.name }}
+                 </div>
+
+                <div class="add-product__box add-product__box--download-photo">
+                    <label class="add-product__title h4">Фотографии</label>
+                    <div class="add-product__box-wrapper">
+                        <div class="add-product__box-inner">
+                            <div class="add-product__photo-box add-product__hidden" >
+                                <img class="add-product__image " id="preview" src=""  width="230" height="230"/>
+                                <button class=" add-product__delete-image cross cross--small cross--red">
+                                </button>
+                            </div>
+                        </div>
+
+                        <label class="add-product__upload">
+                            {{ form.image }}
+                             <p class="add-product__upload-text">Добавить фотографию</p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="add-product__box">
+                     <label class="add-product__title h4" for="{{ form.condition.id_for_label }}">Состояние</label>
+                     {{ form.condition }}
+                </div>
+
+                <div class="add-product__box">
+                     <label class="add-product__title h4" for="{{ form.description.id_for_label }}">Описание товара</label>
+                     {{ form.description }}
+
+                </div>
+
+                <div class="add-product__box">
+                     <label class="add-product__title h4" for="{{ form.category.id_for_label }}">Категории</label>
+                     {{ form.category }}
+                </div>
+
+                 <div class="add-product__box">
+                     <label class="add-product__title h4" for="{{ form.address.id_for_label }}">Адрес</label>
+                     {{ form.address }}
+                 </div>
+
+                 <div class="add-product__box">
+                     <label class="add-product__title h4" for="{{ form.price.id_for_label }}">Цена</label>
+                     <div class="add-product__price-wrapper">
+                         {{form.price}}
+                         <span class="add-product__price-money-symbol">₽</span>
+                     </div>
+                 </div>
+
+
+                 <div class="add-product__buttons">
+                     <button class="add-product__button button  button--blue" type="submit">Опубликовать</button>
+                     <a  class="add-product__button button  button--blue" href="/">Выйти</a>
+                 </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+
+{% endblock %}

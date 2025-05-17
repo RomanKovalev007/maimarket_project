@@ -8,7 +8,7 @@
     <title>MAI market</title>
     <link type="text/css" href="{% static 'main/css/main.css'%}" rel="stylesheet">
     <script src="{% static 'main/js/main.js' %}" type="module" defer></script>
-
+    {% block js %} {% endblock %}
 </head>
 <body>
     <header class="header" data-js-header>
@@ -28,14 +28,14 @@
                     <a class="header__menu-link header__menu-link--heart" href="#">Избранное</a>
                 </li>
                 <li class="header__menu-item">
-                    <a class="header__menu-link header__menu-link--folder" href="#">Категории</a>
+                    <a class="header__menu-link header__menu-link--folder" href="{% url 'goods:goods_list' %}">Категории</a>
                 </li>
                 <li class="header__menu-item ">
-                    <a class="header__menu-link header__menu-item--info " href="#">Разместить объявление</a>
+                    <a class="header__menu-link header__menu-item--info " href="{% url 'goods:add_ad' %}">Разместить объявление</a>
                 </li>
 
                 <li class="header__menu-item ">
-                    <a class="header__menu-link header__menu-item--mail" href="#">Поддержка</a>
+                    <a class="header__menu-link header__menu-item--mail" href="{% url 'support' %">Поддержка</a>
                 </li>
                 <!-- <li class="header__menu-item">
                     <a class="header__menu-link header__menu-link--profile" href="/form-login.html">Войти</a>
