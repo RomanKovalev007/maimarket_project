@@ -24,8 +24,9 @@ def upload_to(instance, filename):
         base_name = slugify(instance.name)[:50]  # Ограничиваем длину
         unique_name = f"{base_name}_{unique_name}"
 
-    # Формируем путь: media/products/год/месяц/день/файл
+    # Формируем путь: media/goods/год/месяц/день/файл
     return os.path.join('goods', year, month, day, unique_name)
+
 def translit_to_eng(s: str) -> str:
     d = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
          'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i', 'к': 'k',

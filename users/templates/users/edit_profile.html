@@ -1,0 +1,64 @@
+
+{% extends 'base_for_profile.html' %}
+{% load static %}
+
+{% block content_user %}
+
+<div class="edit-profile__wrapper">
+<div class="edit-profile__photo">
+    <h2 class="h3">Изменить профиль</h2>
+    <div class="add-product">
+        <form class="add-product__form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="add-product__box add-product__box--download-photo">
+                <label class="add-product__box-label h4" for="">Изменить фото</label>
+            <div class="add-product__box-wrapper">
+
+                <div class="add-product__box-inner">
+
+                    <div class="add-product__photo-box add-product__hidden" >
+                        <img class="add-product__image add-product__image--for-profile" id="preview" src=""  width="230" height="230"/>
+                        <button class=" add-product__delete-image cross cross--small cross--red">
+                        </button>
+                    </div>
+                </div>
+
+                <label class="add-product__upload add-product__upload--for-profile">
+                    {{ form.photo }}
+                     <p class="add-product__upload-text add-product__upload-text--for-profile">Добавить фотографию</p>
+                </label>
+            </div>
+            </div>
+            <div class="add-product__box">
+            <label class="h4" for="{{ form.first_name.id_for_label }}">Имя</label>
+                    {{ form.first_name }}
+            </div>
+            <div class="add-product__box">
+            <label class="h4" for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                    {{ form.last_name }}
+            </div>
+            <div class="add-product__box">
+            <label class="h4" for="{{ form.telegram.id_for_label }}">Ник в телеграм</label>
+                    {{ form.telegram }}
+            </div>
+
+            <div class="add-product__box">
+            <label class="add-product__title h4" for="{{ form.number.id_for_label }}">Номер телефона</label>
+            <div class="add-product__price-wrapper">
+                {{ form.number }}
+            </div>
+            </div>
+            <div class="add-product__box">
+                 <label class="add-product__title h4" for="userInfo">О себе</label>
+                 <textarea class="add-product__area" name="description" id="userInfo"></textarea>
+            </div>
+            <div class="add-product__buttons">
+             <button class="add-product__button button button--blue" type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

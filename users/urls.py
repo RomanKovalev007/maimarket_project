@@ -1,5 +1,5 @@
 from django.contrib.auth.views import LogoutView, PasswordResetView, PasswordResetDoneView, PasswordResetCompleteView, \
-    PasswordResetConfirmView
+    PasswordResetConfirmView, PasswordChangeDoneView
 
 from . import views
 from django.urls import path, reverse_lazy
@@ -7,6 +7,12 @@ from django.urls import path, reverse_lazy
 app_name = 'users'
 
 urlpatterns = [
+    path('profile/<int:user_id>/', views.profile_goods, name='profile'),
+    path('profile/not_published/', views.profile_unpublished_goods, name='profile_not_published'),
+    path('profile/change_data/', views.edit_profile, name='profile_change_data'),
+    path('profile/change_password/', views.UserPasswordChange.as_view(), name='password_change'),
+    path('profile/change_password/done/',
+         PasswordChangeDoneView.as_view(template_name='users/password_change_done.html'), name='password_change_done'),
     path('my_profile/', views.my_profile, name='my_profile'),
     path('login/', views.LoginUser.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),

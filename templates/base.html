@@ -43,11 +43,11 @@
 
               <li class="header__menu-item">
                   {% if user.is_authenticated %}
-                  <a class="header__menu-link" href="{% url 'users:my_profile' %}">
+                  <a class="header__menu-link" href="{{ request.user.get_absolute_url }}">
                     <span class="profile">
                     <span class="profile__logo">
                         {% if user.photo %}
-                      <img class="profile__logo-image" src="#" alt="" width="35" height="35">
+                        <img class="profile__logo-image" src="{{ request.user.photo.url }}" alt="" width="35" height="35">
                         {% endif %}
                     </span>
                       <span class="profile__name">{{ request.user.username }}</span>

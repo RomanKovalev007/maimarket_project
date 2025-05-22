@@ -1,0 +1,53 @@
+{% extends 'base_for_profile.html' %}
+{% load static %}
+
+
+{% block content_user %}
+    <h2 class="my-products__title h3">{% if user == request.user %}Мои товары{% else %}Товары продавца{% endif %}</h2>
+    <ul class="my-products__list">
+        {% for ad in ads %}
+        <li class="my-products__item">
+            <div class="my-products__item-wrapper">
+
+                <div class="my-products__photo">
+                    <a href="{{ ad.get_absolute_url }}">
+                    <img class="my-products__image" src="{{ ad.image.url }}" alt="">
+                    </a>
+                </div>
+                <div class="my-products__info">
+                    <h3 class="my-products__name h4">{{ ad.name }}</h3>
+                    <p class="my-products__price "><span>{{ ad.price }}</span></p>
+                    <p>{{ ad.time_create }}</p>
+                    <p>{{ ad.address }}</p>
+                </div>
+
+            </div>
+            <div class="my-products__btns">
+                <a class="my-products__button button button--edit" href="{% url 'goods:edit' ad.slug %}">Редактировать</a>
+
+                <a class="my-products__button  button  button--delete" href="{% url 'goods:publish' ad.slug %}">
+                    {% if ad.is_published == 1 %}
+                        Удалить
+                    {% else %}
+                        Опубликовать
+                    {% endif %}
+                </a>
+            </div>
+        </li>
+        {% endfor %}
+
+    </ul>
+
+<dialog class="delete-window" data-js-delte-window>
+    <form class="delete-window__form">
+        <button  class="delete-window__button-cross cross" type="button" data-js-delte-window-close></button>
+        <div class="delete-window__wrapper">
+            <p>Вы уверены что хотите удалить обявление?</p>
+            <div class="delete-window__button-wrapper">
+                <button class="delete-window__button button button--blue" type="button"  data-js-delte-window-button>Удалить</button>
+                <button class="delete-window__button button button--blue" type="button" data-js-delte-window-close>Отмена</button>
+            </div>
+        </div>
+    </form>
+</dialog>
+{% endblock %}
