@@ -9,18 +9,20 @@ from goods.forms import AdForm, GoodsFilterForm
 from goods.models import Goods
 
 
+# класс представления для добавления нового товара юзером в БД
 class AddAd(LoginRequiredMixin, CreateView):
     form_class =  AdForm
     template_name = 'goods/add_ad.html'
     extra_context = {'title': 'Новое объявление'}
     success_url = reverse_lazy('home')
 
+    # добавление к информации о товаре сведения о пользователе, опубликовавшем товар
     def form_valid(self, form):
         w = form.save(commit=False)
         w.seller = self.request.user
         return super().form_valid(form)
 
-
+# функция представления для страницы с лентой товаров и формой для фильтров товаров
 def goods_list(request):
     form = GoodsFilterForm(request.GET or None)
     ads = Goods.objects.filter(is_published=True)
@@ -58,6 +60,7 @@ def goods_list(request):
     return render(request, 'goods/goods_list.html', context)
 
 
+# функция представления для карточки товара
 def show_ad(request, ad_slug):
     ad = get_object_or_404(Goods, slug=ad_slug)
     context = {
@@ -66,7 +69,7 @@ def show_ad(request, ad_slug):
     }
     return render(request, 'goods/product-card.html', context)
 
-
+# функция представления для редактирования информации товара
 def edit_ad(request, ad_slug):
     ad = get_object_or_404(Goods, slug=ad_slug)
 
@@ -88,6 +91,7 @@ def edit_ad(request, ad_slug):
     }
     return render(request, 'goods/add_ad.html', context)
 
+# временная функция для перемещения товара в неопубликованные
 def remove_ad(request, ad_slug):
     ad = Goods.objects.get(slug=ad_slug)
     if ad.is_published:

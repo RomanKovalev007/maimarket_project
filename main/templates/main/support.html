@@ -1,62 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAI market</title>
-    <link rel="stylesheet" href="/styles/main.css">
-    <script src="./scripts/main.js" type="module" defer></script>
-</head>
-<body>
-    <header class="header" data-js-header>
-      <div class="header__inner container">
-        <a class="header__logo" href="/">
-            <img class="header__logo-image" src="./MAI_logo_color.png" alt="MAI logo" width="100" height="100">
-        </a>
-
-        <form class="header__form">
-                <input class="header__form-search"  type="text" placeholder="Поиск товаров...">
-            <button class="header__form-search-button" type="submit">Найти</button>
-        </form>
-
-        <nav class="header__menu " data-js-header-overlay>
-            <ul class="header__menu-list">
-                <li class="header__menu-item">
-                    <a class="header__menu-link header__menu-link--heart" href="#">Избранное</a>
-                </li>
-                <li class="header__menu-item">
-                    <a class="header__menu-link header__menu-link--folder" href="./mainProdPage.html">Категории</a>
-                </li>
-                <li class="header__menu-item ">
-                    <a class="header__menu-link header__menu-item--info " href="#">О сайте</a>
-                </li>
-          
-                <li class="header__menu-item ">
-                    <a class="header__menu-link header__menu-item--mail" href="#">Поддержка</a>
-                </li>
-                <!-- <li class="header__menu-item">
-                    <a class="header__menu-link header__menu-link--profile" href="/form-login.html">Войти</a>
-                </li> -->
-                <li class="header__menu-item">
-                  <a class="header__menu-link" href="/profile.html">
-                    <span class="profile">
-                      <span class="profile__logo">
-                        <img class="profile__logo-image" src="/img/1.png" alt="" width="40" height="40">
-                      </span>
-                      <span class="profile__name">Профиль</span>
-                    </span>
-                  </a>
-              </li>
-            </ul>
-        </nav>
-
-        <button type="button" class="header__burger-button  burger-button visible-tablet " data-js-header-burger-button  aria-label="Open menu" title="Open menu">
-          <span class="burger-button__line"></span>
-          <span class="burger-button__line"></span>
-          <span class="burger-button__line"></span>
-        </button>
-      </div>
-    </header>
+{% extends 'base.html' %}
+{% block content %}
 
     <main class="main">
       <section class="section container">
@@ -93,7 +36,5 @@
         </div>
       </section>
     </main>
- 
 
-</body>
-</html>
+{% endblock %}
