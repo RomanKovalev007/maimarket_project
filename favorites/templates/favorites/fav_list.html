@@ -1,0 +1,36 @@
+{% extends 'base_for_profile.html' %}
+{% load static %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block content_user %}
+
+<h2 class="my-products__title h3">Избранное</h2>
+<ul class="my-products__list">
+{% for ad in ads %}
+    <li class="my-products__item">
+        <div class="my-products__item-wrapper">
+            <div class="my-products__photo">
+                <a href="{{ ad.product.get_absolute_url }}">
+                <img class="my-products__image" src="{{ ad.product.image.url }}" alt="">
+                </a>
+            </div>
+            <div class="my-products__info   ">
+                <h3 class="my-products__name h4">{{ ad.product.name }}</h3>
+                <p class="my-products__price">{{ ad.product.price }} <span>₽</span></p>
+            </div>
+        </div>
+        <div class="my-products__btns">
+            <button class="my-products__button button button--delete-from-likes" data-js-delete-favorites>Убрать из избранного</button>
+            <button class="my-products__button button button--delete-from-likes" >Написать</button>
+            <button class="my-products__button button button--delete-from-likes" >Позвонить</button>
+        </div>
+    </li>
+    {% endfor %}
+
+
+</ul>
+
+{% endblock %}

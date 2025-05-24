@@ -1,0 +1,38 @@
+{% extends 'base_for_forms.html' %}
+
+
+{% block content %}
+<form method="post" class="registration-login__form form container" data-js-registration-form novalidate>
+    {% csrf_token %}
+    <div class="form__header">
+        <h1 class="form__title h3">
+            Войти
+        </h1>
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <a class="form__close-button cross" href="/">
+        </a>
+    </div>
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+    <div class="form__box">
+            <label class="form__box-title visually-hidden" for="{{ f.id_for_label }}">{{ f.label }}</label>
+            {{ f }}
+            <div class="form-error">{{ f.errors }}</div>
+            <div></div>
+    </div>
+    {% endfor %}
+
+    <div class="form__checkbox">
+        <a href="{% url 'users:password_reset' %}">Забыли пароль?</a>
+    </div>
+
+    <div class="form__box form__box--registration">
+        <button type="submit" class="form__box-button button button--registration">Войти</button>
+    </div>
+    <div class="form__box">
+        <p class="form__box-account-message">Нет аккаунта? Тогда скорее регистрируйся!</p>
+        <a class="form__box-button button" href="{% url 'users:register' %}">Регистрация</a>
+    </div>
+</form>
+
+{% endblock %}

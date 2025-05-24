@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="main">
+      <section class="section">
+        <header class="section__header container">
+            <h1 class="section__header-title h3">Категории</h1>
+        </header>
+        <div class="section__body container ">
+          <div class="categories">
+            <ul class="categories__list">
+              <li class="categories__item">
+                <a class="categories__link" href="">
+                  <img class="categories__image" src="/img/iphone_16_128_gb_rozovyy.jpg" alt="" width="200">
+                  <h2 class="categories__title h4">Электроника</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="">
+                  <img class="categories__image" src="/img/iphone_16_128_gb_rozovyy.jpg" alt="" width="200">
+                  <h2 class="categories__title h4">Электроника</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="">
+                  <img class="categories__image" src="/img/iphone_16_128_gb_rozovyy.jpg" alt="" width="200">
+                  <h2 class="categories__title h4">Электроника</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="">
+                  <img class="categories__image" src="/img/iphone_16_128_gb_rozovyy.jpg" alt="" width="200">
+                  <h2 class="categories__title h4">Электроника</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="">
+                  <img class="categories__image" src="/img/iphone_16_128_gb_rozovyy.jpg" alt="" width="200">
+                  <h2 class="categories__title h4">Электроника</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="">
+                  <img class="categories__image" src="/img/iphone_16_128_gb_rozovyy.jpg" alt="" width="200">
+                  <h2 class="categories__title h4">Электроника</h2>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container">
+        <header class="section__header ">
+            <h1 class="section__header-title h3">Популярные товары</h1>
+        </header>
+        <div class="section__body  ">
+          <div class="goods">
+            <ul class="goods__list">
+
+              {% for ad in ads %}
+                <li class="goods__item">
+                  <div class="goods-card">
+                    <a href="{{ ad.get_absolute_url }}" class="goods-card__link">
+                      <img class="goods-card__image" src="{{ ad.image.url }}"  alt="">
+                    </a>
+                    <div class="goods-card__text-box">
+                      <a class="goods-card__text-link" href="{{ ad.get_absolute_url }}">
+                        <p class="goods-card__text">{{ ad.name }}</p>
+                      </a>
+
+                      <span id="{{ ad.id }}" class="goods-card__icon icon icon--heart {{ ad.is_favorite }}" data-js-favorite-product>
+                        <svg data-js-svg-icon width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" xmlns="http://www.w3.org/2000/svg">
+                          <path data-js-path-icon fill="none" stroke-width="2" d="M12.7046 4.25632C13.8299 3.13054 15.3564 2.49805 16.9482 2.49805C18.5399 2.49805 20.0664 3.13051 21.1916 4.25624C22.3174 5.38152 22.95 6.90816 22.95 8.49987C22.95 10.0916 22.3175 11.6181 21.1917 12.7434L12.3517 21.5834C12.1565 21.7787 11.8399 21.7787 11.6446 21.5834L2.80461 12.7434C0.460963 10.3998 0.460963 6.59997 2.80461 4.25632C5.14826 1.91267 8.94807 1.91267 11.2917 4.25632L11.9982 4.96277L12.7046 4.25632Z" />
+                        </svg>
+                      </span>
+
+                    </div>
+                    <div class="goods-card__price">
+                      <span>{{ ad.price }}</span>
+                      <span>₽</span>
+                    </div>
+                    <div class="goods-card__location">
+                      <span class="goods-card__icon icon icon--location" >
+                        <svg  fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 395.71 395.71"
+                          xml:space="preserve">
+                          <g>
+                            <path  d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738
+                                   c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388
+                                   C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191
+                                   c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z" />
+                          </g>
+                        </svg>
+                      </span>
+                      <p>{{ ad.address.name }}</p>
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+{% endblock %}

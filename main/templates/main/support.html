@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <main class="main">
+      <section class="section container">
+        <header class="section__header ">
+            <h1 class="section__header-title h3">Контакты</h1>
+        </header>
+        <div class="section__body">
+          <p class="h5">+79832972747</p>
+          <p class="h5">+79832038888</p>
+        </div>
+      </section>
+      <section class="section container">
+        <header class="section__header ">
+            <h1 class="section__header-title h3">Поддержка</h1>
+        </header>
+        <div class="section__body  ">
+            <div class="support-page">
+              <h2 class="support-page__title h4">Заполните форму и опишите свою ошибку или обратитесь по телефону выше</h2>
+              <form class="support-page__form">
+                  <div class="support-page__box">
+                      <label class="h5" for="emalil">Ваша почта</label>
+                      <input class="support-page__input" type="email" name="Email" id="emalil">
+                  </div>
+                  <div class="support-page__box">
+                    <label class="h5" for="error">Опишите проблему</label>
+                    <textarea class="support-page__text-area" type="text" name="ERROR" id="error"></textarea>
+                </div>
+                <div class="support-page__button-box">
+                  <button class="support-page__button button button--blue" type="submit">Отправить</button>
+                  <a  class="support-page__button button button--blue"  href="./index.html">Выйти</a>
+                </div>
+              </form>
+            </div>
+        </div>
+      </section>
+    </main>
+
+{% endblock %}

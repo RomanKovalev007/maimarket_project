@@ -1,0 +1,62 @@
+{% extends 'base_for_profile.html' %}
+{% load static %}
+
+
+{% block content_user %}
+    <h2 class="my-products__title h3">{% if user == request.user %}Мои товары{% else %}Товары продавца{% endif %}</h2>
+    <ul class="my-products__list">
+        {% for ad in ads %}
+        <li class="my-products__item">
+            <div class="my-products__item-wrapper">
+
+                <div class="my-products__photo">
+                    <a href="{{ ad.get_absolute_url }}">
+                    <img class="my-products__image" src="{{ ad.image.url }}" alt="">
+                    </a>
+                </div>
+                <div class="my-products__info">
+                    <h3 class="my-products__name h4">{{ ad.name }}</h3>
+                    <p class="my-products__price "><span>{{ ad.price }}</span></p>
+                    <p>{{ ad.time_create }}</p>
+                    <p>{{ ad.address }}</p>
+                </div>
+
+            </div>
+
+            <div class="my-products__btns">
+                {% if user == request.user %}
+                <a class="my-products__button button button--edit" href="{% url 'goods:edit' ad.slug %}">Редактировать</a>
+
+                <a class="my-products__button  button  button--delete" href="{% url 'goods:publish' ad.slug %}">
+                    {% if ad.is_published == 1 %}
+                        Удалить
+                    {% else %}
+                        Опубликовать
+                    {% endif %}
+                </a>
+                {% else %}
+                    <span id="{{ ad.id }}" class="goods-card__icon icon icon--heart {{ ad.is_favorite }}" data-js-favorite-product>
+                        <svg data-js-svg-icon width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" xmlns="http://www.w3.org/2000/svg">
+                            <path data-js-path-icon fill="none" stroke-width="2" d="M12.7046 4.25632C13.8299 3.13054 15.3564 2.49805 16.9482 2.49805C18.5399 2.49805 20.0664 3.13051 21.1916 4.25624C22.3174 5.38152 22.95 6.90816 22.95 8.49987C22.95 10.0916 22.3175 11.6181 21.1917 12.7434L12.3517 21.5834C12.1565 21.7787 11.8399 21.7787 11.6446 21.5834L2.80461 12.7434C0.460963 10.3998 0.460963 6.59997 2.80461 4.25632C5.14826 1.91267 8.94807 1.91267 11.2917 4.25632L11.9982 4.96277L12.7046 4.25632Z" />
+                        </svg>
+                    </span>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+
+    </ul>
+
+<dialog class="delete-window" data-js-delte-window>
+    <form class="delete-window__form">
+        <button  class="delete-window__button-cross cross" type="button" data-js-delte-window-close></button>
+        <div class="delete-window__wrapper">
+            <p>Вы уверены что хотите удалить обявление?</p>
+            <div class="delete-window__button-wrapper">
+                <button class="delete-window__button button button--blue" type="button"  data-js-delte-window-button>Удалить</button>
+                <button class="delete-window__button button button--blue" type="button" data-js-delte-window-close>Отмена</button>
+            </div>
+        </div>
+    </form>
+</dialog>
+{% endblock %}

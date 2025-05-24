@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block js %}
+    <script src="{% static 'goods/js/new-product.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+<section class="container">
+        <div class="add-product">
+           <h2 class="add-product__title ">Новое объявление</h2>
+
+           <form class="add-product__form" method="post" enctype="multipart/form-data">
+               {% csrf_token %}
+                <div class="add-product__name">
+                    <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="add-product__photo">
+                    <p class="title">Фотографии</p>
+                    <div class="add-product__photo-inner">
+                        <div class="photo-preview-wrapper">
+                            <div class="photo-preview-box hidden">
+                                <img class="preview__image" id="preview" src=""  width="70" height="70"/>
+                                <button class="delete__photoBTN">
+                                    <span class="red_line"></span>
+                                    <span class="red_line"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="photo-upload">
+                            <label class="photo-upload-label">
+                                {{ form.image }}
+                                <p class="uploadtext"> + Добавить фотографию </p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-product__radio">
+                    <p class="title">Состоние</p>
+                    <div class="radiabatns">
+
+
+                        <label class="radiobtn" >
+                            {{form.condition}}
+                            <span class="radio__label">Новый</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="add-product__description">
+                    <label class="title" for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+                    {{ form.description }}
+                </div>
+
+            <div class="add-product__categori">
+                <label class="title" for="{{ form.category.id_for_label }}">{{ form.category.label }}</label>
+                {{ form.category }}
+
+            </div>
+            <div class="price">
+                <label class="title" for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
+                <div class="priece__wrapper">
+                    {{form.price}}
+                    <span class="money-symbol">₽</span>
+                </div>
+
+            </div>
+
+
+            <div class="btns">
+                <button class="Btn" type="submit">Редактировать</button>
+                <a  class="Btn" href="/">Выйти</a>
+            </div>
+           </form>
+
+        </div>
+</section>
+
+
+{% endblock %}
