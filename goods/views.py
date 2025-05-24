@@ -94,6 +94,8 @@ def edit_ad(request, ad_slug):
 # временная функция для перемещения товара в неопубликованные
 def remove_ad(request, ad_slug):
     ad = Goods.objects.get(slug=ad_slug)
+    if request.user != ad.seller:
+        raise PermissionDenied("У вас нет прав для редактирования этого объявления")
     if ad.is_published:
         ad.is_published = False
         ad.save()
