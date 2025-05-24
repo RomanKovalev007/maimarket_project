@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'goods.apps.GoodsConfig',
     'favorites.apps.FavoritesConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
