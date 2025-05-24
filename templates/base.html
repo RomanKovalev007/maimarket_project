@@ -16,9 +16,9 @@
         <a class="header__logo" href="/">
             <img class="header__logo-image" src="{% static 'main/img/mai_logo_color.png' %}" alt="MAI logo" width="100" height="100">
         </a>
-
-        <form class="header__form">
-            <input class="header__form-search"  type="text" placeholder="Поиск товаров...">
+        <form action="{% url 'goods:goods_list' %}" method="get" class="header__form">
+            {% csrf_token %}
+            <input type="text" name="query" placeholder="Поиск товаров..." class="header__form-search">
             <button class="header__form-search-button" type="submit">Найти</button>
         </form>
 
@@ -28,7 +28,7 @@
                     <a class="header__menu-link header__menu-link--heart" href="#">Избранное</a>
                 </li>
                 <li class="header__menu-item">
-                    <a class="header__menu-link header__menu-link--folder" href="{% url 'goods:goods_list' %}">Категории</a>
+                    <a class="header__menu-link header__menu-link--folder" href="{% url 'goods:goods_list' %}">Лента товаров</a>
                 </li>
                 <li class="header__menu-item ">
                     <a class="header__menu-link header__menu-item--info " href="{% url 'goods:add_ad' %}">Разместить объявление</a>
@@ -37,9 +37,6 @@
                 <li class="header__menu-item ">
                     <a class="header__menu-link header__menu-item--mail" href="{% url 'support' %}">Поддержка</a>
                 </li>
-                <!-- <li class="header__menu-item">
-                    <a class="header__menu-link header__menu-link--profile" href="/form-login.html">Войти</a>
-                </li> -->
 
               <li class="header__menu-item">
                   {% if user.is_authenticated %}
