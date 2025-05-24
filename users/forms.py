@@ -63,3 +63,5 @@ class UserPasswordChangeForm(PasswordChangeForm):
     new_password1 =forms.CharField(label='Новый пароль', widget=forms.PasswordInput(attrs={'placeholder':'Введите новый пароль', 'class': "add-product__name-input"}))
     new_password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'placeholder': 'Повторите пароль', 'class': "add-product__name-input"}))
 
+class VerificationForm(forms.Form):
+    code = forms.CharField(max_length=6, required=True, label='Код верификации', widget=forms.TextInput(attrs={'placeholder': 'Введите код', 'class': "form__box-input",}))

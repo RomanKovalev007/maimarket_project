@@ -1,0 +1,41 @@
+{% extends 'base_for_forms.html' %}
+{% block content %}
+
+
+<div class="registration-login__form form container">
+    <form method="post">
+    {% csrf_token %}
+
+    <div class="form__header">
+        <h1 class="form__title h3">
+            Подтверждение электронной почты
+        </h1>
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <a class="form__close-button cross" href="/">
+        </a>
+    </div>
+        <p>
+            На вашу электронную почту был отправлен код верификации, введите его в поле ниже
+        </p>
+    {% for f in form %}
+    <div class="form__box">
+            <label class="form__box-title visually-hidden" for="{{ f.id_for_label }}">{{ f.label }}</label>
+            {{ f }}
+            <div class="form-error">{{ f.errors }}</div>
+            <div></div>
+    </div>
+    {% endfor %}
+    <p></p>
+    <div class="form__box form__box--registration">
+        <button type="submit" class="form__box-button button button--registration">Подтвердить</button>
+    </div>
+
+    {% if error %}
+        <div class="form__box">
+            <p style="color: red;">{{ error }}</p>
+        </div>
+    {% endif %}
+</form>
+</div>
+
+{% endblock %}

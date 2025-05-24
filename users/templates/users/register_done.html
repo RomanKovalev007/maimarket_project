@@ -1,7 +1,13 @@
 {% extends 'base_for_forms.html' %}
 {% block content %}
 
-    <h2>Вы успешно зарегестрированы!</h2>
-    <p>Перейдите по ссылке ниже для входа на сайт:</p>
-    <a href="{% url 'users:login' %}">Вход</a>
+
+<div class="registration-login__form form container">
+    <h2>Вы были успешно зарегистрированы!</h2>
+    <p>Перейдите по кнопке ниже для входа на сайт</p>
+    <div class="form__box">
+        <a class="form__box-button button" href="{% url 'users:login' %}">На страницу входа</a>
+    </div>
+</div>
+
 {% endblock %}

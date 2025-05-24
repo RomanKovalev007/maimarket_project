@@ -15,7 +15,8 @@ urlpatterns = [
          PasswordChangeDoneView.as_view(template_name='users/password_change_done.html'), name='password_change_done'),
     path('login/', views.LoginUser.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('register/', views.RegisterUser.as_view(), name='register'),
+    path('register/', views.register, name='register'),
+    path('verify_email/', views.verify_email, name='verify_email'),
     path('register_done/', views.register_done, name='register_done'),
     path('password_reset/', PasswordResetView.as_view(
         template_name='users/password_reset_form.html',
