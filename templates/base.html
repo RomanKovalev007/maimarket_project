@@ -25,7 +25,7 @@
         <nav class="header__menu " data-js-header-overlay>
             <ul class="header__menu-list">
                 <li class="header__menu-item">
-                    <a class="header__menu-link header__menu-link--heart" href="#">Избранное</a>
+                    <a class="header__menu-link header__menu-link--heart" href="{% url 'favorites:fav_list' %}">Избранное</a>
                 </li>
                 <li class="header__menu-item">
                     <a class="header__menu-link header__menu-link--folder" href="{% url 'goods:goods_list' %}">Лента товаров</a>

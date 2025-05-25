@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block js %}
-
+<script src="{% static 'favorites/js/product-favorite-for-users-profile.js' %}" type="module" defer></script>
 {% endblock %}
 
 {% block content_user %}
@@ -20,10 +20,11 @@
             <div class="my-products__info   ">
                 <h3 class="my-products__name h4">{{ ad.product.name }}</h3>
                 <p class="my-products__price">{{ ad.product.price }} <span>₽</span></p>
+
             </div>
         </div>
         <div class="my-products__btns">
-            <button class="my-products__button button button--delete-from-likes" data-js-delete-favorites>Убрать из избранного</button>
+            <button class="my-products__button button button--delete-from-likes" data-js-favorite-product>Убрать из избранного</button>
             <button class="my-products__button button button--delete-from-likes" >Написать</button>
             <button class="my-products__button button button--delete-from-likes" >Позвонить</button>
         </div>
