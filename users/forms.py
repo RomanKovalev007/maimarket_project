@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 
 
 class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(label="Логин или Почта", widget=forms.TextInput(attrs={'placeholder': 'Введите email',
+    username = forms.CharField(label="Логин или Почта", widget=forms.TextInput(attrs={'placeholder': 'Введите логин или email',
                                                           'class': "form__box-input",
                                                            'pattern': "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
                                                           'title': "Введите корректный email, например: example@mail.com"}))

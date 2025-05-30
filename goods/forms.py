@@ -41,7 +41,7 @@ class GoodsFilterForm(forms.Form):
     query = forms.CharField(
         label='Поиск по названию',
         required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'Введите название', 'class' :"product-filters__price-input"})
+        widget=forms.TextInput(attrs={'placeholder': 'Введите название', 'class' :"product-filters__query-input"})
     )
     category = forms.ModelChoiceField(
         queryset=Categories.objects.all(),

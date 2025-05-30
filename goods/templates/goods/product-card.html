@@ -24,8 +24,16 @@
                             <p>{{ ad.seller.username }}</p>
                             {% if ad.seller.photo %}
                             <img class="product-card__aside-profile-image" src="{{ ad.seller.photo.url }}" alt="" width="60" height="60">
+                            {% else %}
+                            <img class="product-card__aside-profile-image" src="{% static 'main/img/anonim.png' %}" alt="" width="60" height="60">
                             {% endif %}
+
                         </a>
+                        <span id="{{ ad.id }}" class="goods-card__icon icon icon--heart {{ ad.is_favorite }}" data-js-favorite-product>
+                            <svg data-js-svg-icon width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" xmlns="http://www.w3.org/2000/svg">
+                                <path data-js-path-icon fill="none" stroke-width="2" d="M12.7046 4.25632C13.8299 3.13054 15.3564 2.49805 16.9482 2.49805C18.5399 2.49805 20.0664 3.13051 21.1916 4.25624C22.3174 5.38152 22.95 6.90816 22.95 8.49987C22.95 10.0916 22.3175 11.6181 21.1917 12.7434L12.3517 21.5834C12.1565 21.7787 11.8399 21.7787 11.6446 21.5834L2.80461 12.7434C0.460963 10.3998 0.460963 6.59997 2.80461 4.25632C5.14826 1.91267 8.94807 1.91267 11.2917 4.25632L11.9982 4.96277L12.7046 4.25632Z" />
+                            </svg>
+                        </span>
                     </div>
 
 

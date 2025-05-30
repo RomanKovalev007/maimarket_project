@@ -45,6 +45,8 @@
                     <span class="profile__logo">
                         {% if user.photo %}
                         <img class="profile__logo-image" src="{{ request.user.photo.url }}" alt="" width="35" height="35">
+                        {% else %}
+                        <img class="profile__logo-image" src="{% static 'main/img/anonim.png' %}" alt="" width="35" height="35">
                         {% endif %}
                     </span>
                       <span class="profile__name">{{ request.user.username }}</span>

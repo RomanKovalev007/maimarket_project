@@ -1,7 +1,6 @@
 {% extends 'base_for_profile.html' %}
 {% load static %}
 
-
 {% block content_user %}
     <h2 class="my-products__title h3">{% if user == request.user %}Мои товары{% else %}Товары продавца{% endif %}</h2>
     <ul class="my-products__list">

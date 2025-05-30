@@ -2,6 +2,10 @@
 {% extends 'base_for_profile.html' %}
 {% load static %}
 
+{% block js %}
+    <script src="{% static 'goods/js/new-product.js' %}" defer></script>
+{% endblock %}
+
 {% block content_user %}
 
 <div class="edit-profile__wrapper">

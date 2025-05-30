@@ -16,7 +16,7 @@ class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'users/login.html'
     extra_context = {'title': 'Авторизация'}
-    success_url = reverse_lazy('users:register_done')
+    success_url = reverse_lazy('')
 
 # функция представления для регистрации на сайте
 def register(request):

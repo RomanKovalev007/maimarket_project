@@ -3,7 +3,83 @@
 
 {% block content %}
     <main class="main">
-
+    <section class="section">
+        <header class="section__header container">
+          <h1 class="section__header-title h3">Категории</h1>
+        </header>
+        <div class="section__body container">
+          <div class="categories">
+            <ul class="categories__list">
+              <li class="categories__item">
+                <a class="categories__link" href="{% url 'goods:goods_list' %}?query=&category=2">
+                  <img
+                    class="categories__image"
+                    src="/img/iphone_16_128_gb_rozovyy.jpg"
+                    alt=""
+                    width="200"
+                  />
+                  <h2 class="categories__title h4">Электроника</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="{% url 'goods:goods_list' %}?query=&category=1">
+                  <img
+                    class="categories__image"
+                    src="/img/iphone_16_128_gb_rozovyy.jpg"
+                    alt=""
+                    width="200"
+                  />
+                  <h2 class="categories__title h4">Для дома</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="{% url 'goods:goods_list' %}?query=&category=6">
+                  <img
+                    class="categories__image"
+                    src="/img/iphone_16_128_gb_rozovyy.jpg"
+                    alt=""
+                    width="200"
+                  />
+                  <h2 class="categories__title h4">Услуги</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="{% url 'goods:goods_list' %}?query=&category=10">
+                  <img
+                    class="categories__image"
+                    src="/img/iphone_16_128_gb_rozovyy.jpg"
+                    alt=""
+                    width="200"
+                  />
+                  <h2 class="categories__title h4">Авто</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="{% url 'goods:goods_list' %}?query=&category=8">
+                  <img
+                    class="categories__image"
+                    src="/img/iphone_16_128_gb_rozovyy.jpg"
+                    alt=""
+                    width="200"
+                  />
+                  <h2 class="categories__title h4">Животные</h2>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__link" href="{% url 'goods:goods_list' %}?query=&category=3">
+                  <img
+                    class="categories__image"
+                    src="/img/iphone_16_128_gb_rozovyy.jpg"
+                    alt=""
+                    width="200"
+                  />
+                  <h2 class="categories__title h4">Одежда и обувь</h2>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <section class="section container">
         <header class="section__header ">

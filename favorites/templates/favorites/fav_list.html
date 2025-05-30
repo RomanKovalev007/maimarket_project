@@ -1,9 +1,6 @@
 {% extends 'base_for_profile.html' %}
 {% load static %}
 
-{% block js %}
-<script src="{% static 'favorites/js/product-favorite-for-users-profile.js' %}" type="module" defer></script>
-{% endblock %}
 
 {% block content_user %}
 
@@ -24,7 +21,7 @@
             </div>
         </div>
         <div class="my-products__btns">
-            <button class="my-products__button button button--delete-from-likes" data-js-favorite-product>Убрать из избранного</button>
+            <a class="my-products__button button button--delete-from-likes" href="{% url 'favorites:remove_fav' ad.id %}">Убрать из избранного</a>
             <button class="my-products__button button button--delete-from-likes" >Написать</button>
             <button class="my-products__button button button--delete-from-likes" >Позвонить</button>
         </div>

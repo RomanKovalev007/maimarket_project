@@ -754,7 +754,7 @@ html.is-lock {
 }
 
 .section {
-  padding-block: 4.375rem;
+  padding-block: 2rem;
 }
 @media (width <= 63.99875rem) {
   .section {
@@ -809,10 +809,14 @@ html.is-lock {
   }
 }
 .categories__link {
+  padding: 5px;
   display: flex;
   align-items: center;
   flex-direction: column;
   text-decoration: none;
+  background-color: #c3daee;
+  border-radius: 20px;
+
 }
 
 .goods-card {
@@ -1239,6 +1243,14 @@ html.is-lock {
 }
 .product-filters__price-input {
   max-width: 9.375rem;
+  background-color: rgba(219, 210, 210, 0.404);
+  border: 0.0625rem solid rgba(54, 54, 54, 0.2862745098);
+  height: 3.4375rem;
+  padding: 0.9375rem;
+  border-radius: 0.875rem;
+}
+.product-filters__query-input {
+  max-width: 20rem;
   background-color: rgba(219, 210, 210, 0.404);
   border: 0.0625rem solid rgba(54, 54, 54, 0.2862745098);
   height: 3.4375rem;
@@ -1777,5 +1789,7 @@ html.is-lock {
   width: 100%;
   max-width: 21.875rem;
 }
+
+
 
 /*# sourceMappingURL=main.css.map */

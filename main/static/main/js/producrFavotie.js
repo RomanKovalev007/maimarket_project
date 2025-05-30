@@ -1,14 +1,4 @@
 
-
-
-// document.addEventListener('click',(event)=>{
-//     const iconHeartElement = event.target.closest('div .icon--heart')
-//     console.log(iconHeartElement)
-//     if(iconHeartElement.classList.contains('icon--heart')){
-//         iconHeartElement.classList.toggle('icon-red-heart')
-//     }
-// })
-
 class FavoriteProduct{
     selectors = {
         rootElement: '[data-js-favorite-product]',
@@ -24,7 +14,7 @@ class FavoriteProduct{
 
     sendId(element){
         this.favoriteId =  element.id
-        fetch(`api/change/${encodeURIComponent(this.favoriteId)}`)
+        fetch(`/favorites/api/change/${encodeURIComponent(this.favoriteId)}`)
         .then(response => response.json())
         .then(json => console.log(json))
         

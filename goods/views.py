@@ -3,8 +3,9 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from django.http import JsonResponse
 from django.db.models import Q
+
+from favorites.models import Favorites
 from goods.forms import AdForm, GoodsFilterForm
 from goods.models import Goods
 
@@ -51,7 +52,12 @@ def goods_list(request):
         if address is not None:
             ads = ads.filter(address=address)
 
-
+    if request.user.is_authenticated:
+        for ad in ads:
+            if Favorites.objects.filter(user=request.user, product=ad).exists():
+                ad.is_favorite = 'is-active'
+            else:
+                ad.is_favorite = ''
     context = {
         'ads': ads,
         'title': 'Лента объявлений',
@@ -67,6 +73,11 @@ def show_ad(request, ad_slug):
         'ad': ad,
         'title': ad.name
     }
+    if request.user.is_authenticated:
+        if Favorites.objects.filter(user=request.user, product=ad).exists():
+            ad.is_favorite = 'is-active'
+        else:
+            ad.is_favorite = ''
     return render(request, 'goods/product-card.html', context)
 
 # функция представления для редактирования информации товара
@@ -91,7 +102,7 @@ def edit_ad(request, ad_slug):
     }
     return render(request, 'goods/add_ad.html', context)
 
-# временная функция для перемещения товара в неопубликованные
+# функция для перемещения товара в неопубликованные
 def remove_ad(request, ad_slug):
     ad = Goods.objects.get(slug=ad_slug)
     if request.user != ad.seller:
