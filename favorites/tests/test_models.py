@@ -1,6 +1,6 @@
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
-from favorites.models import Favorites
+from ..models import Favorites
 from goods.models import Goods, Categories, Address, Condition
 from users.models import User
 import tempfile

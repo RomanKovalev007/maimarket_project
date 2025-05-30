@@ -3,7 +3,7 @@ from django.test import TestCase, Client, override_settings
 from django.urls import reverse
 from users.models import User
 from goods.models import Goods, Categories, Condition, Address
-from favorites.models import Favorites
+from ..models import Favorites
 import tempfile
 import shutil
 
